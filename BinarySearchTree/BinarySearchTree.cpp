@@ -82,6 +82,74 @@ void BSTree<T>::insert(T val)
                     temp = temp->right;
                 }
             }
+            else
+            {
+                // left
+                if(temp-> left == NULL)
+                {
+                    temp->left = nodeToBeAdded;
+                    break;
+                }
+                else
+                {
+                    temp = temp -> left;
+                }
+            }
         }
     }
+}
+
+template<class T>
+void BSTree<T>::inOrder(Node<T>* node)
+{
+    if(node != NULL)
+    {
+        //left
+        inOrder(node->left);
+        //node
+        cout << node->value << endl;
+        //right
+        inOrder(node->right);   
+    }
+}
+
+template<class T>
+void BSTree<T>::preOrder(Node<T>* node)
+{
+    if(node != NULL)
+    {
+        cout << node->value << endl;
+        preOrder(node->left);
+        preOrder(node->right);
+    }
+}
+
+template<class T>
+void BSTree<T>::postOrder(Node<T>* node)
+{
+    postOrder(node-> left);
+    postOrder(node-> right);
+    cout << node-> value << endl;
+}
+
+template<class T>
+void BSTree<T>::deleteBST(Node<T>* node)
+{
+    if(!node)
+    {
+        return;
+    }
+    
+    Node<T>* currentTreeNode = node;
+    Node<T>* leftTreeNode = node->left;
+    Node<T>* rightTreeNode = node->right;
+    delete currentTreeNode;
+    deleteBST(leftTreeNode);
+    deleteBST(rightTreeNode);
+}
+
+template<class T>
+BSTree<T>::~BSTree(void)
+{
+    deleteBST(root);
 }
