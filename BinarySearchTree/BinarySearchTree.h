@@ -37,7 +37,7 @@ public:
     void traverse(Order order);
 
     void inOrder(Node<T> *node);
-    void preOrder(Node<T> * node);
+    void preOrder(Node<T> *node);
     void postOrder(Node<T> *node);
 
     void deleteBST(Node<T> *node);
