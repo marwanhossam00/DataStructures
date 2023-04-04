@@ -10,7 +10,7 @@ Node<T>::Node()
 }
 
 template<class T>
-Node<T>::Node(T value)
+Node<T>::Node(T val)
 {
     value = val;
     left = right = NULL;
@@ -49,7 +49,6 @@ Node<T>* BSTree<T>::findNode(T val)
             //left
             temp = temp->left;
         }
-
         return temp;
     }
 }
