@@ -49,8 +49,8 @@ Node<T>* BSTree<T>::findNode(T val)
             //left
             temp = temp->left;
         }
-        return temp;
     }
+    return temp;
 }
 
 template<class T>
@@ -97,6 +97,25 @@ void BSTree<T>::insert(T val)
         }
     }
 }
+
+template<class T>
+void BSTree<T>:: traverse(Order order)
+{
+    if(order == INORDER)
+    {
+        inOrder(root);
+    }
+    else if(order == PREORDER)
+    {
+        preOrder(root);
+    }
+    else
+    {
+        postOrder(root);
+    }
+}
+
+
 
 template<class T>
 void BSTree<T>::inOrder(Node<T>* node)
